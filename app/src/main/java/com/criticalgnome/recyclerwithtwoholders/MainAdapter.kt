@@ -47,11 +47,32 @@ class MainAdapter(private val items: List<MainItem>, private val callback: Callb
         private val dataId = itemView.findViewById<TextView>(R.id.id)
 
         fun bind(item: ItemData) {
-            dataDate.text = String.format("%d.%d.%d", item.date[Calendar.DATE], item.date.get(Calendar.MONTH), item.date.get(Calendar.YEAR))
+            dataDate.text = StringBuilder("")
+                    .append(if (item.date[Calendar.DAY_OF_MONTH] < 10) "0${item.date[Calendar.DATE]} " else "${item.date[Calendar.DAY_OF_MONTH]} ")
+                    .append(
+                            when (item.date[Calendar.MONTH]) {
+                                0 -> "JAN"
+                                1 -> "FEB"
+                                2 -> "MAR"
+                                3 -> "APR"
+                                4 -> "MAY"
+                                5 -> "JUN"
+                                6 -> "JUL"
+                                7 -> "AUG"
+                                8 -> "SEP"
+                                9 -> "OCT"
+                                10 -> "NOV"
+                                11 -> "DEC"
+                                else -> ""
+                            })
+                    .append(" ${item.date[Calendar.YEAR]}")
             dataName.text = item.name
             dataId.text = item.id.toString()
             itemView.setOnClickListener { callback.onItemClicked(item) }
         }
+
+//        private fun getFormattedDate(calendar: Calendar) =
+
     }
 
     interface Callback {
