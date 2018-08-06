@@ -70,9 +70,6 @@ class MainAdapter(private val items: List<MainItem>, private val callback: Callb
             dataId.text = item.id.toString()
             itemView.setOnClickListener { callback.onItemClicked(item) }
         }
-
-//        private fun getFormattedDate(calendar: Calendar) =
-
     }
 
     interface Callback {
