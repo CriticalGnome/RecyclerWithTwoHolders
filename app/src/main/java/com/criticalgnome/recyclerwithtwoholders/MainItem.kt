@@ -1,0 +1,3 @@
+package com.criticalgnome.recyclerwithtwoholders
+
+abstract class MainItem
