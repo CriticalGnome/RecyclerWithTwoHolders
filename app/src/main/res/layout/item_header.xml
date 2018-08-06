@@ -9,14 +9,17 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         tools:text="Header"
         />
 

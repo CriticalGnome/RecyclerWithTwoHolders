@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import java.util.*
 
 class MainAdapter(private val items: List<MainItem>, private val callback: Callback): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -46,7 +47,7 @@ class MainAdapter(private val items: List<MainItem>, private val callback: Callb
         private val dataId = itemView.findViewById<TextView>(R.id.id)
 
         fun bind(item: ItemData) {
-            dataDate.text = item.date.toString()
+            dataDate.text = String.format("%d.%d.%d", item.date[Calendar.DATE], item.date.get(Calendar.MONTH), item.date.get(Calendar.YEAR))
             dataName.text = item.name
             dataId.text = item.id.toString()
             itemView.setOnClickListener { callback.onItemClicked(item) }
